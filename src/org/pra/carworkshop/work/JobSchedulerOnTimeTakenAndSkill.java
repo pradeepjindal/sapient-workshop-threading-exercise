@@ -1,6 +1,5 @@
 package org.pra.carworkshop.work;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.pra.carworkshop.job.JobCard;
@@ -14,12 +13,12 @@ public class JobSchedulerOnTimeTakenAndSkill implements JobSchedulerI {
 	public void scheduleJob(List<JobCard> jobCardList, List<EmployeeSheet> employeeSheetList) {
 		
 		// prioritized based on time taken and if skill is compatible
-		Collections.sort(jobCardList, new JobCardComparatorByTaskTimeDesc());
+		jobCardList.sort(new JobCardComparatorByTaskTimeDesc());
 		int scheduleSequence = 0;
 		
 		for(JobCard jobCard : jobCardList) {
 			
-			Collections.sort(employeeSheetList, new EmployeeComparatorByTimeDesc());
+			employeeSheetList.sort(new EmployeeComparatorByTimeDesc());
 			for(EmployeeSheet employeeSheet : employeeSheetList) {
 				if( employeeSheet.getTimeLeft() >= jobCard.getTask().getTime()
 						&& employeeSheet.getEmployee().getTaskList().contains(jobCard.getTask())) {

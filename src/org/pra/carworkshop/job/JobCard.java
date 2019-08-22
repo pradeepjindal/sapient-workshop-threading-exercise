@@ -62,7 +62,6 @@ public class JobCard implements Runnable {
 			//e.printStackTrace();
 		}
 		System.out.println("scheduleSequence=" + scheduleSequence + " (" + employee.getName() + ") | finishing - " + task.getName());
-		return;
 	}
 
 	public Employee getEmployee() {

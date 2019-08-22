@@ -9,9 +9,9 @@ public class EmployeeSheet {
 
 	private int serialNo;
 	
-	private List<JobCard> jobCardList;
+	private final List<JobCard> jobCardList;
 
-	private Employee employee;
+	private final Employee employee;
 	private int timeLeft;
 
 	public EmployeeSheet(Employee employee) {
@@ -27,8 +27,18 @@ public class EmployeeSheet {
 		StringBuilder stringBuilder = new StringBuilder();
 		for(JobCard jobCard : jobCardList) {
 			//stringBuilder.append(employee.getName()).append(" | jobCardNo=").append(jobCard.getJobCardNo()).append(" | ").append(jobCard).append("\n");
-			stringBuilder.append("_schedule.seq=" + jobCard.getScheduleSequence() + " | " + employee.getName() + "   " +  jobCard.getExecutionOrder() + "(jobCardNo=" + jobCard.getJobCardNo() + ") |" + 
-			jobCard.getTask().getName() + " [" + jobCard.getTask().getTime() + " Hour] Rs." + jobCard.getTask().getFee() + "\n");
+//			stringBuilder.append("_schedule.seq=" + jobCard.getScheduleSequence() + " | " + employee.getName() + "   " +  jobCard.getExecutionOrder() + "(jobCardNo=" + jobCard.getJobCardNo() + ") |" +
+//			jobCard.getTask().getName() + " [" + jobCard.getTask().getTime() + " Hour] Rs." + jobCard.getTask().getFee() + "\n");
+			//
+			stringBuilder.append("_schedule.seq=")
+					.append(jobCard.getScheduleSequence())
+					.append(" | ").append(employee.getName())
+					.append("   ").append(jobCard.getExecutionOrder())
+					.append("(jobCardNo=").append(jobCard.getJobCardNo())
+					.append(") |").append(jobCard.getTask().getName())
+					.append(" [").append(jobCard.getTask().getTime())
+					.append(" Hour] Rs.").append(jobCard.getTask().getFee())
+					.append("\n");
 		}
 		return stringBuilder.toString();
 

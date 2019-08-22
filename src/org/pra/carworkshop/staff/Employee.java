@@ -7,8 +7,8 @@ import org.pra.carworkshop.task.Task;
 
 public class Employee {
 
-	private String name;
-	private int workingHour;
+	private final String name;
+	private final int workingHour;
 	private List<Task> taskList;
 
 	public Employee(String name, int workingHour) {

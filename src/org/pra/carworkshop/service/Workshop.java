@@ -11,9 +11,9 @@ import org.pra.carworkshop.work.JobSchedulerI;
 
 public class Workshop implements WorkshopI {
 	
-	List<Task> taskList;
-	List<JobCard> jobCardList;
-	List<EmployeeSheet> employeeSheetList;
+	private List<Task> taskList;
+	private List<JobCard> jobCardList;
+	private List<EmployeeSheet> employeeSheetList;
 
 	@Override
 	public int addTasks(List<Task> taskList) {
@@ -41,7 +41,7 @@ public class Workshop implements WorkshopI {
 	@Override
 	public void executeJob() {
 
-		ExecutorService executorService = null;
+		ExecutorService executorService;
 		for(EmployeeSheet employeeSheet : employeeSheetList) {
 			executorService = Executors.newSingleThreadExecutor();
 			for(JobCard jobCard : employeeSheet.getJobList()) {

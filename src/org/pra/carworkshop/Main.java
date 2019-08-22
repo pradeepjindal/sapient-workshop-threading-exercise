@@ -62,14 +62,14 @@ public class Main {
 		//JobSchedulerI jobScheduler = new JobSchedulerOnTimeTaken();
 		//JobSchedulerI jobScheduler = new JobSchedulerOnHighFee();
 		
-		//JobSchedularI jobSchedular = new JobSchedularOnTimeTakenAndSkill();
-		JobSchedulerI jobSchedular = new JobSchedulerOnTimeTakenAndSkillWithOverTime();
+		//JobSchedulerI jobScheduler = new JobSchedulerOnTimeTakenAndSkill();
+		JobSchedulerI jobScheduler = new JobSchedulerOnTimeTakenAndSkillWithOverTime();
 		
 		WorkshopI workshop = new Workshop();
 		workshop.addTasks(taskList);
 		workshop.addJobCard(jobCardList);
 		workshop.addEmployeeSheet(employeeSheetList);
-		workshop.scheduleJob(jobSchedular);
+		workshop.scheduleJob(jobScheduler);
 		
 		System.out.println("---------------------------------");
 		for(EmployeeSheet employeeSheet : employeeSheetList) {
@@ -78,8 +78,6 @@ public class Main {
 		System.out.println("---------------------------------");
 		
 		workshop.executeJob();
-		
-		return;
 	}
 
 }
